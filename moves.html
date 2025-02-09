@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: red;
+        }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes-btn {
+            background-color: red;
+            color: white;
+        }
+        .no-btn {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine? 💖</h1>
+        <div class="buttons">
+            <button class="yes-btn" onclick="showMessage('yes')">Yup! 😊</button>
+            <button class="no-btn" id="noButton">Nahh I Got Someone Better 😜</button>
+        </div>
+        <p class="message" id="message"></p>
+    </div>
+    <script>
+        function showMessage(response) {
+            let message = document.getElementById("message");
+            if (response === 'yes') {
+                message.innerHTML = "Yay! You just made my day! ❤️ You're the best!";
+            }
+        }
+        
+        function moveButton() {
+            let button = document.getElementById("noButton");
+            let x = Math.floor(Math.random() * (window.innerWidth - 100));
+            let y = Math.floor(Math.random() * (window.innerHeight - 100));
+            button.style.position = "absolute";
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+        
+        document.getElementById("noButton").addEventListener("mouseover", moveButton);
+    </script>
+</body>
+</html>
